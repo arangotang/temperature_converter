@@ -4,8 +4,25 @@ fn main() {
     println!("\n*****************************");
     println!("    Temperature Converter");
     println!("*****************************");
-    for element in [false, true] {
-        converter(element);
+
+    loop {
+        println!("Do you want to convert to Celsius or to Farenheit? (C / F)");
+        let mut choice = String::new();
+
+        io::stdin()
+            .read_line(&mut choice)
+            .expect("Failed to read line");
+
+        let choice = choice.trim();
+
+        if choice == "C" {
+            converter(false);
+        } else if choice == "F" {
+            converter(true);
+        } else {
+            continue;
+        }
+        break;
     }
 }
 
@@ -14,12 +31,12 @@ fn converter(to_farenheit: bool) {
     let _new_type = if to_farenheit {"F"} else {"C"};
 
     loop {
-        println!("\nEnter a temperature in {}:", _init_type);
+        println!("Enter a temperature in {}:", _init_type);
         let mut _init_temp = String::new();
 
         io::stdin()
-                .read_line(&mut _init_temp)
-                .expect("Failed to read line");
+            .read_line(&mut _init_temp)
+            .expect("Failed to read line");
 
         let _init_temp: f32 = match _init_temp.trim().parse() {
             Ok(num) => num,

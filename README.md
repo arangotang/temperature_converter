@@ -9,4 +9,4 @@
 
 ## Upcoming Updates:
 - [x] Increase conversion precision by changing temperature values' datatypes from integer to floating-point
-- [ ] Allow for user to pick which specific conversion to do
+- [x] Allow for user to pick which specific conversion to do
